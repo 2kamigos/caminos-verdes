@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caminos Verdes 2KAMIGOS</title>
+  <meta name="description" content="Mapa interactivo de los árboles de la Avenida Sucre de Los Dos Caminos y calendario ambiental 2027. Un programa de la Asociación de Amigos de Los Dos Caminos (2KAMIGOS).">
+  <meta name="author" content="Angelo Guevara, Jose Zambrano y Carla Belisario">
+  <meta name="theme-color" content="#23869E">
+
+  <!-- Vista previa al compartir el enlace (WhatsApp, redes) -->
+  <meta property="og:title" content="Caminos Verdes · 2KAMIGOS">
+  <meta property="og:description" content="Conocer nuestros árboles es el primer paso para protegerlos.">
+  <meta property="og:image" content="img/fotos/compartir.jpg">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" href="img/logo/favicon.png">
+  <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+
+  <!-- Tipografías de la identidad (gratuitas, Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet (librería del mapa, copia local en /vendor) -->
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<!-- Iconos reutilizables (se usan con <svg><use href="#i-nombre"></use></svg>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></g></symbol>
+    <symbol id="i-izq" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-der" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mas" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-menos" viewBox="0 0 24 24"><path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-expandir" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-descargar" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-telefono" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v7m-3-3 3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-abrir" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sol" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-viento" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h15a3 3 0 1 1-3 3M3 16h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hoja" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15zM5 19l7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-correo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></g></symbol>
+  </defs>
+</svg>
+
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+
+<!-- ==================== CABECERA ==================== -->
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="cabecera__logo" href="#inicio" aria-label="Caminos Verdes, ir al inicio">
+      <img src="img/logo/logo-2kamigos-turquesa.png" alt="2KAMIGOS" width="184" height="278">
+      <span class="cabecera__nombre">Caminos Verdes</span>
+    </a>
+    <button class="boton-icono menu-boton" id="menu-boton" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">
+      <svg aria-hidden="true"><use href="#i-menu"></use></svg>
+    </button>
+    <nav class="menu" id="menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#mapa">Mapa</a></li>
+        <li><a href="#calendario">Calendario 2027</a></li>
+        <li><a href="#conoce">Conoce</a></li>
+        <li><a href="#participa">Participa</a></li>
+        <li><a href="#sobre">Sobre 2KAMIGOS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- ==================== A. INICIO ==================== -->
+  <section id="inicio" class="portada" aria-labelledby="titulo-inicio">
+    <figure class="portada__foto-marco">
+      <img class="portada__foto" src="img/fotos/saman.jpg" alt="El Samán de la Avenida Sucre de Los Dos Caminos" width="1200" height="1600">
+      <figcaption class="portada__pie">Samán · Av. Sucre, Los Dos Caminos</figcaption>
+    </figure>
+    <div class="portada__panel">
+      <div class="contenedor portada__rejilla">
+        <div class="portada__texto">
+          <p class="portada__lema">Vecinos de todos los días</p>
+          <h1 id="titulo-inicio">Conocer nuestros árboles es el primer paso para protegerlos</h1>
+          <p class="portada__intro">Recorre la Avenida Sucre de Los Dos Caminos, descubre las especies que nos acompañan cada día y aprende cómo cuidarlas.</p>
+          <div class="portada__acciones">
+            <a class="boton boton--blanco" href="#mapa"><svg aria-hidden="true"><use href="#i-pin"></use></svg>Explorar el mapa</a>
+            <a class="boton boton--contorno-blanco" href="#calendario"><svg aria-hidden="true"><use href="#i-calendario"></use></svg>Ver calendario 2027</a>
+          </div>
+          <p class="portada__firma">Un programa de la Asociación de Amigos de Los Dos Caminos · 2KAMIGOS</p>
+        </div>
+        <figure class="portada__galeria">
+          <img src="img/fotos/saman.jpg" alt="El Samán de la Avenida Sucre de Los Dos Caminos" loading="lazy">
+          <figcaption class="portada__pie">Samán · Av. Sucre, Los Dos Caminos</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="seccion--gris">
+    <div class="contenedor cifras">
+      <p class="cifra"><strong id="cifra-arboles">27</strong><span>árboles en el mapa</span></p>
+      <p class="cifra"><strong>12</strong><span>especies en el calendario</span></p>
+      <p class="cifra"><strong>1</strong><span>avenida: la Av. Sucre</span></p>
+    </div>
+  </div>
+
+  <!-- ==================== B. MAPA ==================== -->
+  <section id="mapa" class="seccion" aria-labelledby="titulo-mapa">
+    <div class="contenedor">
+      <p class="antetitulo">Mapa interactivo</p>
+      <h2 id="titulo-mapa" class="titulo-seccion">¡Conoce a tus vecinos de todos los días!</h2>
+      <p class="entrada">Toca un árbol del mapa para ver su foto, su nombre y dónde encontrarlo en la Avenida Sucre.</p>
+      <div class="recorrido">
+        <p><strong>El recorrido:</strong> Avenida Sucre de Los Dos Caminos, desde la Av. Francisco de Miranda (junto a la Universidad José María Vargas) hasta la Av. Los Chorros, a la altura de Manifiesto.</p>
+        <a class="boton boton--borde" href="https://www.google.com/maps/dir/?api=1&amp;origin=Av.+Francisco+de+Miranda+con+Av.+Sucre,+Los+Dos+Caminos,+Caracas&amp;destination=10.507619,-66.831658&amp;travelmode=walking" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"></use></svg>Ver el recorrido en Google Maps</a>
+      </div>
+
+      <div class="pestanas" role="tablist" aria-label="Formato del mapa">
+        <button class="pestana" role="tab" id="tab-interactivo" aria-controls="panel-interactivo" aria-selected="true">Mapa interactivo</button>
+        <button class="pestana" role="tab" id="tab-pdf" aria-controls="panel-pdf" aria-selected="false" tabindex="-1">PDF original</button>
+      </div>
+
+      <div id="panel-interactivo" role="tabpanel" aria-labelledby="tab-interactivo">
+        <!-- Filtros por camino: aparecen solos cuando data/arboles.js tenga el campo "camino" lleno -->
+        <div class="filtros" id="filtros" hidden></div>
+
+        <div class="mapa-marco" id="mapa-marco">
+          <div id="mapa-visor" role="application" aria-label="Mapa ilustrado de Caminos Verdes. Usa la lista de árboles debajo del mapa para navegar con teclado."></div>
+          <div class="mapa-controles">
+            <button class="boton-icono" id="mapa-acercar" aria-label="Acercar"><svg aria-hidden="true"><use href="#i-mas"></use></svg></button>
+            <button class="boton-icono" id="mapa-alejar" aria-label="Alejar"><svg aria-hidden="true"><use href="#i-menos"></use></svg></button>
+            <button class="boton-icono" id="mapa-completo" aria-label="Ver mapa en pantalla completa" aria-pressed="false"><svg aria-hidden="true"><use href="#i-expandir"></use></svg></button>
+          </div>
+          <p class="mapa-ayuda" id="mapa-ayuda">Pellizca para ampliar · toca un árbol</p>
+        </div>
+        <p class="mapa-aviso" id="mapa-aviso" aria-live="polite"></p>
+
+        <h3 class="lista-titulo" id="titulo-lista">Todos los árboles del recorrido</h3>
+        <ul class="lista-arboles" id="lista-arboles" aria-labelledby="titulo-lista"></ul>
+      </div>
+
+      <div id="panel-pdf" role="tabpanel" aria-labelledby="tab-pdf" hidden>
+        <div class="mapa-pdf">
+          <img src="img/mapa/mapa-vista-previa.jpg" alt="Vista previa del mapa original Caminos Verdes" loading="lazy">
+          <div class="mapa-pdf__acciones">
+            <p>Este es el mapa tal como fue diseñado, sin cambios. Al abrirlo, tu teléfono o computadora te permitirá ampliarlo con los dedos o con el zoom del navegador.</p>
+            <a class="boton boton--lleno" href="docs/mapa-caminos-verdes-web.pdf" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-abrir"></use></svg>Abrir mapa en PDF (0,6 MB)</a>
+            <a class="boton boton--borde" href="docs/originales/mapa-caminos-verdes-original.pdf" download><svg aria-hidden="true"><use href="#i-descargar"></use></svg>Descargar original en alta calidad (18 MB)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ficha del árbol: se rellena desde js/mapa.js -->
+  <div class="ficha-fondo" id="ficha-fondo" hidden></div>
+  <aside class="ficha" id="ficha" role="dialog" aria-modal="true" aria-labelledby="ficha-nombre" hidden>
+    <div class="ficha__asa" aria-hidden="true"></div>
+    <div class="ficha__barra">
+      <div style="display:flex; gap:8px">
+        <button class="boton-icono" id="ficha-anterior" aria-label="Árbol anterior"><svg aria-hidden="true"><use href="#i-izq"></use></svg></button>
+        <button class="boton-icono" id="ficha-siguiente" aria-label="Árbol siguiente"><svg aria-hidden="true"><use href="#i-der"></use></svg></button>
+      </div>
+      <button class="boton-icono" id="ficha-cerrar" aria-label="Cerrar ficha"><svg aria-hidden="true"><use href="#i-cerrar"></use></svg></button>
+    </div>
+    <img class="ficha__foto" id="ficha-foto" src="" alt="">
+    <p class="ficha__num" id="ficha-num"></p>
+    <h2 id="ficha-nombre"></h2>
+    <p class="ficha__cientifico" id="ficha-cientifico" hidden></p>
+    <p class="ficha__dato" id="ficha-camino" hidden></p>
+    <p class="ficha__dato"><svg aria-hidden="true"><use href="#i-pin"></use></svg><span id="ficha-ubicacion"></span></p>
+    <h3 class="ficha__subtitulo" id="ficha-especie-titulo" hidden></h3>
+    <p class="ficha__texto" id="ficha-descripcion" hidden></p>
+    <p class="ficha__nota" id="ficha-nota" hidden></p>
+    <p class="ficha__pendiente" id="ficha-pendiente" hidden></p>
+    <div class="ficha__acciones" id="ficha-acciones"></div>
+  </aside>
+
+  <!-- ==================== C. CALENDARIO ==================== -->
+  <section id="calendario" class="seccion seccion--gris" aria-labelledby="titulo-calendario">
+    <div class="contenedor">
+      <p class="antetitulo">Calendario ambiental</p>
+      <h2 id="titulo-calendario" class="titulo-seccion">Un árbol para cada mes de 2027</h2>
+      <p class="entrada">Desliza o usa las flechas para recorrer los meses. Cada página conserva el diseño original del calendario.</p>
+
+      <div class="calendario">
+        <div class="calendario__meses" id="calendario-meses" aria-label="Elegir mes"></div>
+        <div class="calendario__visor" id="calendario-visor">
+          <img class="calendario__pagina" id="calendario-pagina" src="img/calendario/00-portada.webp" alt="Portada del calendario 2027" width="1200" height="1650">
+          <button class="calendario__flecha calendario__flecha--ant" id="calendario-ant" aria-label="Mes anterior"><svg aria-hidden="true"><use href="#i-izq"></use></svg></button>
+          <button class="calendario__flecha calendario__flecha--sig" id="calendario-sig" aria-label="Mes siguiente"><svg aria-hidden="true"><use href="#i-der"></use></svg></button>
+        </div>
+        <div class="calendario__info" aria-live="polite">
+          <p class="calendario__mes" id="calendario-mes"></p>
+          <h3 id="calendario-especie"></h3>
+          <p id="calendario-ubicacion"></p>
+          <div class="calendario__acciones">
+            <button class="boton boton--lleno" id="calendario-ver-mapa"><svg aria-hidden="true"><use href="#i-pin"></use></svg>Ver en el mapa</button>
+            <button class="boton boton--lleno" id="calendario-fondo" type="button" hidden><svg aria-hidden="true"><use href="#i-telefono"></use></svg>Fondo de pantalla</button>
+            <a class="boton boton--borde" id="calendario-ampliar" href="img/calendario/00-portada.webp" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-abrir"></use></svg>Ampliar página</a>
+          </div>
+          <a href="docs/calendario-2027-caminos-verdes.pdf" download>Descargar el calendario completo en PDF (5 MB)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== C2. FONDOS DE PANTALLA DEL MES ==================== -->
+  <dialog class="fondos" id="fondos" aria-labelledby="fondos-titulo">
+    <div class="fondos__cabecera">
+      <div>
+        <p class="calendario__mes" id="fondos-mes"></p>
+        <h3 id="fondos-titulo">Fondo de pantalla</h3>
+      </div>
+      <button class="boton-icono" id="fondos-cerrar" type="button" aria-label="Cerrar"><svg aria-hidden="true"><use href="#i-cerrar"></use></svg></button>
+    </div>
+    <div class="fondos__opciones">
+      <figure class="fondos__opcion">
+        <div class="fondos__telefono"><img id="fondos-img" alt="" width="300" height="649" loading="lazy"></div>
+        <figcaption><strong>Fijo</strong><span>Imagen · cualquier teléfono</span></figcaption>
+        <a class="boton boton--lleno" id="fondos-descargar-img" download aria-label="Descargar imagen"><svg aria-hidden="true"><use href="#i-descargar"></use></svg>Imagen</a>
+      </figure>
+      <figure class="fondos__opcion">
+        <div class="fondos__telefono"><video id="fondos-video" muted loop playsinline preload="none" aria-label="Vista previa del fondo en movimiento"></video></div>
+        <figcaption><strong>En movimiento</strong><span>Video corto que se repite</span></figcaption>
+        <a class="boton boton--borde" id="fondos-descargar-video" download aria-label="Descargar video"><svg aria-hidden="true"><use href="#i-descargar"></use></svg>Video</a>
+      </figure>
+    </div>
+    <details class="fondos__ayuda">
+      <summary>¿Cómo lo pongo de fondo?</summary>
+      <p><strong>Imagen (todos los teléfonos):</strong> abre la foto en tu galería, toca compartir o los tres puntos y elige "Usar como fondo de pantalla".</p>
+      <p><strong>Video en Android:</strong> muchos teléfonos, como Samsung, permiten elegir un video de la galería como fondo de la pantalla de bloqueo.</p>
+      <p><strong>Video en iPhone:</strong> convierte el video en Live Photo con una app gratuita (por ejemplo intoLive) y elígela como fondo.</p>
+    </details>
+    <p class="fondos__nota">Foto real del árbol del recorrido Caminos Verdes. El movimiento es una animación suave de la foto.</p>
+  </dialog>
+
+  <!-- ==================== D. CONOCE CAMINOS VERDES ==================== -->
+  <section id="conoce" class="seccion" aria-labelledby="titulo-conoce">
+    <div class="contenedor conoce">
+      <div style="display:grid; gap:18px">
+        <p class="antetitulo">Conoce Caminos Verdes</p>
+        <h2 id="titulo-conoce" class="titulo-seccion">Los árboles también son nuestros vecinos</h2>
+        <blockquote class="cita">
+          <p>“Conocimiento, cuido, protección, plantado y defensa del arbolado urbano como factor de bienestar, equilibrio y calidad de vida en la comunidad doscaminera.”</p>
+          <footer>Programa Caminos Verdes · 2KAMIGOS</footer>
+        </blockquote>
+        <p>Caminos Verdes busca que los vecinos conozcan y valoren los árboles de su entorno y participen activamente en su cuidado. Este mapa reúne los árboles de la Avenida Sucre para que cualquier persona pueda reconocerlos al caminar.</p>
+        <img class="conoce__foto" src="img/fotos/foto2.jpg" alt="Árbol frondoso en la Avenida Sucre" loading="lazy">
+      </div>
+      <div style="display:grid; gap:18px">
+        <h3 style="font-size:20px">¿Por qué es importante el arbolado urbano?</h3>
+        <div class="beneficios">
+          <article class="beneficio">
+            <svg aria-hidden="true"><use href="#i-sol"></use></svg>
+            <h3>Sombra y frescura</h3>
+            <p>Bajan la temperatura de calles y aceras, y hacen más agradable caminar.</p>
+          </article>
+          <article class="beneficio">
+            <svg aria-hidden="true"><use href="#i-viento"></use></svg>
+            <h3>Aire más limpio</h3>
+            <p>Sus hojas retienen polvo y producen oxígeno.</p>
+          </article>
+          <article class="beneficio">
+            <svg aria-hidden="true"><use href="#i-gota"></use></svg>
+            <h3>Agua de lluvia</h3>
+            <p>Sus raíces ayudan a que el suelo absorba el agua.</p>
+          </article>
+          <article class="beneficio">
+            <svg aria-hidden="true"><use href="#i-hoja"></use></svg>
+            <h3>Vida y bienestar</h3>
+            <p>Dan refugio a las aves y hacen del barrio un lugar más sano y bonito.</p>
+          </article>
+        </div>
+        <h3 style="font-size:20px">¿Por qué debemos protegerlos?</h3>
+        <p>Un árbol tarda muchos años en crecer y puede perderse en un día. Cuidarlos es cuidar nuestra calidad de vida y el patrimonio natural que compartimos.</p>
+        <h3 style="font-size:20px">¿Cómo puede participar un vecino?</h3>
+        <ol class="pasos-vecino">
+          <li>Aprende a reconocer los árboles de tu calle con este mapa.</li>
+          <li>Cuida el árbol frente a tu casa o tu negocio.</li>
+          <li>Comparte esta página con tus vecinos.</li>
+          <li>Súmate a las actividades de Caminos Verdes de 2KAMIGOS.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== E. PARTICIPA ==================== -->
+  <section id="participa" class="seccion seccion--turquesa" aria-labelledby="titulo-participa">
+    <div class="contenedor">
+      <p class="antetitulo">Participa y cuida tu comunidad</p>
+      <h2 id="titulo-participa" class="titulo-seccion">Pequeños gestos, grandes árboles</h2>
+      <ol class="consejos">
+        <li class="consejo"><span class="octogono" aria-hidden="true">1</span><div><h3>Respeta su tronco</h3><p>No claves avisos, clavos ni alambres en los árboles.</p></div></li>
+        <li class="consejo"><span class="octogono" aria-hidden="true">2</span><div><h3>Cuida las áreas verdes</h3><p>Mantén las jardineras libres de basura y escombros.</p></div></li>
+        <li class="consejo"><span class="octogono" aria-hidden="true">3</span><div><h3>Respeta el entorno</h3><p>No dañes raíces, ramas ni nidos: los árboles son hogar de otras especies.</p></div></li>
+        <li class="consejo"><span class="octogono" aria-hidden="true">4</span><div><h3>Avisa a tiempo</h3><p>Si ves un árbol en riesgo o una poda indebida, comunícate con 2KAMIGOS.</p></div></li>
+        <li class="consejo"><span class="octogono" aria-hidden="true">5</span><div><h3>Participa</h3><p>Súmate a las actividades ambientales y recorridos de Caminos Verdes.</p></div></li>
+        <li class="consejo"><span class="octogono" aria-hidden="true">6</span><div><h3>Contagia la cultura de conservación</h3><p>Escanea el código QR, comparte el mapa y enseña los árboles a los más pequeños.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==================== F. SOBRE 2KAMIGOS ==================== -->
+  <!-- Textos tomados del documento "Cultura Organizacional" de la asociación. No modificar sin autorización. -->
+  <section id="sobre" class="seccion" aria-labelledby="titulo-sobre">
+    <div class="contenedor sobre">
+      <div style="display:grid; gap:16px">
+        <p class="antetitulo">Sobre 2KAMIGOS</p>
+        <h2 id="titulo-sobre" class="titulo-seccion">Asociación de Amigos de Los Dos Caminos</h2>
+        <p>La Asociación de Amigos de Los Dos Caminos 2KAMIGOS es una organización comunitaria sin fines de lucro, que nos agrupa como vecinos y amigos de Los Dos Caminos, con el propósito fundamental de fomentar en esta comunidad el arraigo, el sentido de pertenencia y la participación ciudadana como factores vinculantes en el fomento de bienestar y calidad de vida.</p>
+        <p>El 10 de febrero de 2021 se configuró de manera explícita la asociación, con el acrónimo “AsoAmigos 2k”, para proponer y ejecutar proyectos en la comunidad. Hoy su acrónimo es 2KAMIGOS.</p>
+        <h3 style="font-size:17px">Valores</h3>
+        <ul class="etiquetas">
+          <li>Honestidad</li><li>Compromiso</li><li>Espíritu de servicio</li>
+          <li>Sentido de pertenencia</li><li>Respeto</li><li>Responsabilidad</li>
+        </ul>
+        <a class="boton boton--lleno" href="https://www.instagram.com/2k_amigos/" target="_blank" rel="noopener" style="justify-self:start"><svg aria-hidden="true"><use href="#i-instagram"></use></svg>Síguenos en Instagram · @2k_amigos</a>
+      </div>
+      <div style="display:grid; gap:14px">
+        <div class="tarjeta-gris">
+          <h3>Misión</h3>
+          <p>Contribuir con el fortalecimiento del tejido social y mejorar la calidad de vida de la comunidad de Los Dos Caminos, participando en la solución de los problemas que afectan a los vecinos, y a la vez promover la participación ciudadana mediante actividades educativas, lúdicas, culturales y de labor social que generen sentido de identidad, pertenencia, arraigo y compromiso ciudadano, en un marco armónico entre los residentes y todos los que hacen vida en Los Dos Caminos y su ambiente circundante.</p>
+        </div>
+        <div class="tarjeta-gris">
+          <h3>Visión</h3>
+          <p>Ser reconocidos como la Asociación de Amigos de Los Dos Caminos comprometida con el desarrollo y bienestar de la comunidad.</p>
+        </div>
+        <details>
+          <summary>Programas de la asociación</summary>
+          <ul>
+            <li><strong>CineClub2K:</strong> difusión del arte y la cultura cinematográfica para promover el fomento de valores, la multiculturalidad y el disfrute de la sana convivencia para la construcción de ciudadanía.</li>
+            <li><strong>Caminos Verdes:</strong> conocimiento, cuido, protección, plantado y defensa del arbolado urbano como factor de bienestar, equilibrio y calidad de vida en la comunidad doscaminera.</li>
+            <li><strong>Ruta Doscaminera:</strong> integración vecinal en caminatas y actividad física en general, que vinculen y sensibilicen a través del compartir reconociendo el entorno natural y su diversidad.</li>
+            <li><strong>Fórmate2K:</strong> aprendizaje permanente a través de cursos y talleres en temáticas variadas para el avance individual y colectivo en función de obtener bienestar y calidad de vida.</li>
+            <li><strong>Acción Social:</strong> procura de apoyo solidario a grupos o individuos en situación de vulnerabilidad, aportando donaciones, recreación y formación como elementos fundamentales para la vida.</li>
+            <li><strong>2Kamigos conversa con:</strong> realización de charlas, foros y conferencias que contribuyan a la formación e información de los vecinos en las temáticas que sean de interés para la comunidad.</li>
+            <li><strong>Vitalis:</strong> información, denuncia y seguimiento de todo lo concerniente a los servicios públicos, así como la búsqueda de soluciones consensuadas con los organismos competentes.</li>
+            <li><strong>Ruta Cultural:</strong> realización de recorridos de reconocimiento del patrimonio arquitectónico, cultural y ambiental a fin de magnificar la identidad vecinal y su acervo cultural.</li>
+            <li><strong>Sala de Lectura:</strong> cultivo del hábito de la lectura en un espacio itinerante donde habrá cabida para el intercambio de ideas y la discusión de temas planteados en cada libro escogido para tal fin.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================== PIE DE PÁGINA ==================== -->
+<footer class="pie">
+  <div class="contenedor pie__rejilla">
+    <img class="pie__logo" src="img/logo/logo-caminos-verdes-blanco.png" alt="2KAMIGOS · Caminos Verdes" loading="lazy">
+    <div>
+      <p style="font-weight:700; margin-bottom:6px">Contacto</p>
+      <ul class="pie__contacto">
+        <li><a href="mailto:asoamigos2k@gmail.com"><svg aria-hidden="true"><use href="#i-correo"></use></svg>asoamigos2k@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/2k_amigos/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-instagram"></use></svg>@2k_amigos</a></li>
+      </ul>
+      <p style="margin-top:8px">Urbanización Los Dos Caminos, Caracas, Venezuela.</p>
+    </div>
+    <div class="pie__creditos">
+      <p>Autores: <strong id="credito-autores">Angelo Guevara, Jose Zambrano y Carla Belisario</strong>.</p>
+      <p style="margin-top:8px">Proyecto de labor social de la Universidad José María Vargas · TSU en Diseño Gráfico, para la Asociación de Amigos de Los Dos Caminos · 2KAMIGOS.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts: primero la librería y los datos, después la lógica -->
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="data/arboles.js"></script>
+<script src="data/calendario.js"></script>
+<script src="data/especies.js"></script>
+<script src="js/mapa.js"></script>
+<script src="js/calendario.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
