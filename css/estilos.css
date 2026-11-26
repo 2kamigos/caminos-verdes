@@ -258,7 +258,7 @@ button { font: inherit; cursor: pointer; }
 .calendario__meses button[aria-current="true"] { background: var(--turquesa-boton); color: var(--blanco); }
 .calendario__visor { position: relative; display: flex; justify-content: center; touch-action: pan-y; user-select: none; }
 .calendario__pagina {
-  width: 100%; max-width: 460px; height: auto; aspect-ratio: 1200 / 1650; object-fit: contain;
+  width: 100%; max-width: 460px; height: auto; aspect-ratio: 1200 / 1699; object-fit: contain;
   background: var(--blanco); border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.08);
   transition: opacity .25s ease;
 }

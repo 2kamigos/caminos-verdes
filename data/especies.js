@@ -25,7 +25,7 @@ window.ESPECIES = {
   "Samán": {
     nombre_cientifico: "Samanea saman",
     descripcion: "Árbol nativo de la América tropical y uno de los más emblemáticos de Venezuela. Su copa muy amplia, en forma de sombrilla, da sombra abundante. Sus hojas se cierran al atardecer y en los días nublados.",
-    validado: false
+    validado: true
   },
   "Mango": {
     nombre_cientifico: "Mangifera indica",
