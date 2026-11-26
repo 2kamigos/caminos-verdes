@@ -2,7 +2,7 @@
   {
     "nombre": "Jabillo",
     "nombre_cientifico": "Hura crepitans",
-    "descripcion": "Árbol nativo de la América tropical, de gran tamaño, con el tronco cubierto de espinas cónicas. Sus frutos, con forma de pequeña calabaza, estallan al secarse y lanzan las semillas lejos. Su savia es irritante: es mejor no tocarla.",
+    "descripcion": "Árbol nativo de la América tropical, de gran tamaño, con el tronco cubierto de espinas cónicas. Sus frutos. con forma de pequeña calabaza, estallan al secarse y lanzan las semillas lejos. Su savia es irritante: es mejor no tocarla.",
     "validado": true
   },
   {
@@ -85,25 +85,21 @@
   },
   {
     "nombre": "Castaño",
-    "nombre_cientifico": "",
     "descripcion": "Árbol de sombra conocido popularmente como castaño, apreciado en las calles por la frescura que da su copa.",
     "validado": true
   },
   {
     "nombre": "Acacias",
-    "nombre_cientifico": "",
     "descripcion": "Árboles conocidos popularmente como acacias, muy usados en calles por su sombra y su floración.",
     "validado": true
   },
   {
     "nombre": "Palmas Dulces",
-    "nombre_cientifico": "",
     "descripcion": "Palmeras conocidas popularmente como palmas dulces, de uso ornamental en calles y jardines.",
     "validado": true
   },
   {
     "nombre": "Chaguaramo Enano",
-    "nombre_cientifico": "",
     "descripcion": "Palmera de porte bajo, conocida como chaguaramo enano. El chaguaramo es una de las palmeras más típicas de las calles de Caracas.",
     "validado": true
   }
