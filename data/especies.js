@@ -86,5 +86,25 @@ window.ESPECIES = {
     nombre_cientifico: "Phoenix sp.",
     descripcion: "Palmera del género Phoenix, pariente de la palma datilera, con hojas largas y arqueadas. Es muy usada como ornamental en calles y jardines.",
     validado: true
+  },
+  "Castaño": {
+    nombre_cientifico: "",
+    descripcion: "Árbol de sombra conocido popularmente como castaño, apreciado en las calles por la frescura que da su copa.",
+    validado: true
+  },
+  "Acacias": {
+    nombre_cientifico: "",
+    descripcion: "Árboles conocidos popularmente como acacias, muy usados en calles por su sombra y su floración.",
+    validado: true
+  },
+  "Palmas Dulces": {
+    nombre_cientifico: "",
+    descripcion: "Palmeras conocidas popularmente como palmas dulces, de uso ornamental en calles y jardines.",
+    validado: true
+  },
+  "Chaguaramo Enano": {
+    nombre_cientifico: "",
+    descripcion: "Palmera de porte bajo, conocida como chaguaramo enano. El chaguaramo es una de las palmeras más típicas de las calles de Caracas.",
+    validado: true
   }
 };
