@@ -20,7 +20,7 @@ window.ESPECIES = {
   "Jabillo": {
     nombre_cientifico: "Hura crepitans",
     descripcion: "Árbol nativo de la América tropical, de gran tamaño, con el tronco cubierto de espinas cónicas. Sus frutos, con forma de pequeña calabaza, estallan al secarse y lanzan las semillas lejos. Su savia es irritante: es mejor no tocarla.",
-    validado: false
+    validado: true
   },
   "Samán": {
     nombre_cientifico: "Samanea saman",
@@ -30,61 +30,61 @@ window.ESPECIES = {
   "Mango": {
     nombre_cientifico: "Mangifera indica",
     descripcion: "Originario del sur de Asia y cultivado en todo el trópico. Es un árbol de copa densa y siempre verde que da sombra todo el año. Sus frutos alimentan a personas, aves y otros animales de la ciudad.",
-    validado: false
+    validado: true
   },
   "Apamates": {
     nombre_cientifico: "Tabebuia rosea",
     descripcion: "Árbol nativo de la América tropical. En la temporada seca pierde sus hojas y se cubre de flores rosadas o lilas, uno de los espectáculos más bonitos de las calles de Caracas.",
-    validado: false
+    validado: true
   },
   "Roble": {
     nombre_cientifico: "Platymiscium diadelphum",
     descripcion: "Árbol nativo de Venezuela, conocido popularmente como roble. Florece con racimos de pequeñas flores amarillas y su madera es muy apreciada por su dureza.",
-    validado: false
+    validado: true
   },
   "Almendrón": {
     nombre_cientifico: "Terminalia catappa",
     descripcion: "Originario de Asia tropical y muy usado en las ciudades por su sombra. Sus ramas crecen en pisos horizontales y sus hojas grandes se tornan rojizas antes de caer.",
-    validado: false
+    validado: true
   },
   "Urape Blanco": {
     nombre_cientifico: "Bauhinia sp.",
     descripcion: "Árbol pequeño del género Bauhinia, reconocible por sus hojas con dos lóbulos, parecidas a la huella de una pezuña, y por sus flores blancas.",
-    validado: false
+    validado: true
   },
   "Pilón": {
     nombre_cientifico: "Andira inermis",
     descripcion: "Árbol nativo de la América tropical, de copa redondeada. Florece con racimos de flores rosadas o moradas que atraen abejas y otros polinizadores.",
-    validado: false
+    validado: true
   },
   "Nim": {
     nombre_cientifico: "Azadirachta indica",
     descripcion: "Originario de la India, de crecimiento rápido y resistente a la sequía. Tradicionalmente sus hojas y semillas se usan como repelente natural de insectos.",
-    validado: false
+    validado: true
   },
   "Cheflera": {
     nombre_cientifico: "Schefflera actinophylla",
     descripcion: "Originaria de Australia y Nueva Guinea. Tiene hojas compuestas en forma de paraguas y flores rojas en largos racimos que atraen aves e insectos.",
-    validado: false
+    validado: true
   },
   "Pittosporum": {
     nombre_cientifico: "Pittosporum tobira",
     descripcion: "Originario de Asia oriental. Es un arbusto o árbol pequeño de hojas brillantes, muy usado en jardinería porque tolera bien la poda; por eso puede verse con forma redondeada.",
-    validado: false
+    validado: true
   },
   "Ficus": {
     nombre_cientifico: "Ficus sp.",
     descripcion: "Árbol del género Ficus, de copa densa y raíces muy fuertes. Sus pequeños frutos alimentan a muchas aves de la ciudad.",
-    validado: false
+    validado: true
   },
   "Ficus Higuerón": {
     nombre_cientifico: "Ficus sp.",
     descripcion: "Los higuerones son árboles del género Ficus, de gran tamaño y raíces poderosas. Sus pequeños frutos son alimento para aves y murciélagos.",
-    validado: false
+    validado: true
   },
   "Palma Fénix": {
     nombre_cientifico: "Phoenix sp.",
     descripcion: "Palmera del género Phoenix, pariente de la palma datilera, con hojas largas y arqueadas. Es muy usada como ornamental en calles y jardines.",
-    validado: false
+    validado: true
   }
 };
