@@ -55,7 +55,7 @@
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
+  window.alListo(function () {
     iniciarMenu();
     iniciarMenuActivo();
     leerEnlace();

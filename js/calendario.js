@@ -3,12 +3,12 @@
    --------------------------------------------------------------------------
    Muestra las páginas originales del calendario (una imagen por mes).
    Se puede navegar con flechas, deslizando el dedo o con las teclas ← →.
-   Los textos de cada mes están en data/calendario.js.
+   Los textos de cada mes están en data/calendario.json.
    ========================================================================== */
 (function () {
   "use strict";
 
-  var paginas = window.CALENDARIO || [];
+  var paginas = [];             // se llena en el arranque con data/calendario.json
   var actual = 0;
   var MESES_CORTOS = ["Portada", "Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
 
@@ -132,6 +132,9 @@
     mostrar(hoy.getFullYear() === 2027 ? hoy.getMonth() + 1 : 0, false);
   }
 
-  document.addEventListener("DOMContentLoaded", iniciar);
+  window.alListo(function () {
+    paginas = window.CALENDARIO || [];
+    iniciar();
+  });
   window.CaminosCalendario = { irAMes: irAMes };
 })();

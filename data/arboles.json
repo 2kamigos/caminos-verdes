@@ -1,0 +1,543 @@
+[
+  {
+    "id": 1,
+    "nombre": "Mangos",
+    "nombre_en_mapa": "Mangos",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 1 y la Av. Francisco de Miranda",
+    "descripcion": "",
+    "nota": "Hilera de 3 árboles de mango.",
+    "foto": "img/arboles/arbol-01.jpg",
+    "mapa": {
+      "x": 892,
+      "y": 6400,
+      "zona": [
+        679,
+        6306,
+        964,
+        6494
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "nombre": "Ficus",
+    "nombre_en_mapa": "Ficus",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 2 y la Transversal 1",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-02.jpg",
+    "mapa": {
+      "x": 873,
+      "y": 6091,
+      "zona": [
+        668,
+        6002,
+        941,
+        6181
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "nombre": "Samán",
+    "nombre_en_mapa": "Samán",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 2 y la Transversal 1",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-03.jpg",
+    "mapa": {
+      "x": 1044,
+      "y": 6080,
+      "zona": [
+        972,
+        5987,
+        1260,
+        6173
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "nombre": "Chaguaramo enano",
+    "nombre_en_mapa": "Chaguaramo enano",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 2 y la Transversal 1",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-04.jpg",
+    "mapa": {
+      "x": 886,
+      "y": 5940,
+      "zona": [
+        662,
+        5837,
+        965,
+        6043
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "nombre": "Apamates",
+    "nombre_en_mapa": "Apamates",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 4 y la Transversal 3",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-05.jpg",
+    "mapa": {
+      "x": 1024,
+      "y": 5301,
+      "zona": [
+        949,
+        5204,
+        1236,
+        5398
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "nombre": "Cheflera",
+    "nombre_en_mapa": "Cheflera",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-06.jpg",
+    "mapa": {
+      "x": 873,
+      "y": 5057,
+      "zona": [
+        682,
+        4978,
+        934,
+        5135
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "nombre": "Roble",
+    "nombre_en_mapa": "Roble",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-07.jpg",
+    "mapa": {
+      "x": 1017,
+      "y": 5039,
+      "zona": [
+        951,
+        4953,
+        1208,
+        5126
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "nombre": "Cheflera",
+    "nombre_en_mapa": "Cheflera",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-08.jpg",
+    "mapa": {
+      "x": 1070,
+      "y": 4952,
+      "zona": [
+        1005,
+        4868,
+        1269,
+        5037
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "nombre": "Pilón",
+    "nombre_en_mapa": "Pilon",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-09.jpg",
+    "mapa": {
+      "x": 923,
+      "y": 4946,
+      "zona": [
+        737,
+        4865,
+        985,
+        5027
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "nombre": "Pilón",
+    "nombre_en_mapa": "Pilon",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-10.jpg",
+    "mapa": {
+      "x": 883,
+      "y": 4878,
+      "zona": [
+        690,
+        4781,
+        957,
+        4975
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "nombre": "Castaño",
+    "nombre_en_mapa": "Castaño",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-11.jpg",
+    "mapa": {
+      "x": 1018,
+      "y": 4862,
+      "zona": [
+        949,
+        4772,
+        1248,
+        4953
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "nombre": "Mango",
+    "nombre_en_mapa": "Mango",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-12.jpg",
+    "mapa": {
+      "x": 846,
+      "y": 4748,
+      "zona": [
+        630,
+        4661,
+        913,
+        4835
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "nombre": "Acacias",
+    "nombre_en_mapa": "Acacias",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-13.jpg",
+    "mapa": {
+      "x": 1076,
+      "y": 4742,
+      "zona": [
+        1006,
+        4650,
+        1300,
+        4834
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "nombre": "Nim",
+    "nombre_en_mapa": "Nim",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 5 y la Transversal 4",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-14.jpg",
+    "mapa": {
+      "x": 933,
+      "y": 4671,
+      "zona": [
+        734,
+        4579,
+        1003,
+        4763
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "nombre": "Ficus",
+    "nombre_en_mapa": "Ficus",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 6 y la Transversal 5",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-15.jpg",
+    "mapa": {
+      "x": 1081,
+      "y": 4567,
+      "zona": [
+        1008,
+        4472,
+        1272,
+        4663
+      ]
+    }
+  },
+  {
+    "id": 16,
+    "nombre": "Almendrón",
+    "nombre_en_mapa": "Almendron",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 6 y la Transversal 5",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-16.jpg",
+    "mapa": {
+      "x": 938,
+      "y": 4513,
+      "zona": [
+        712,
+        4409,
+        1017,
+        4617
+      ]
+    }
+  },
+  {
+    "id": 17,
+    "nombre": "Roble",
+    "nombre_en_mapa": "Roble",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-17.jpg",
+    "mapa": {
+      "x": 1068,
+      "y": 3656,
+      "zona": [
+        993,
+        3559,
+        1279,
+        3754
+      ]
+    }
+  },
+  {
+    "id": 18,
+    "nombre": "Pittosporum",
+    "nombre_en_mapa": "Pittosporum",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-18.jpg",
+    "mapa": {
+      "x": 933,
+      "y": 3592,
+      "zona": [
+        703,
+        3492,
+        1009,
+        3692
+      ]
+    }
+  },
+  {
+    "id": 19,
+    "nombre": "Ficus Higuerón",
+    "nombre_en_mapa": "Ficus Higueron",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-19.jpg",
+    "mapa": {
+      "x": 1052,
+      "y": 3485,
+      "zona": [
+        977,
+        3387,
+        1265,
+        3583
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "nombre": "Urape Blanco",
+    "nombre_en_mapa": "Urape Blanco",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-20.jpg",
+    "mapa": {
+      "x": 858,
+      "y": 3475,
+      "zona": [
+        658,
+        3370,
+        938,
+        3580
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "nombre": "Palmas Dulces",
+    "nombre_en_mapa": "Palmas Dulces",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-21.jpg",
+    "mapa": {
+      "x": 941,
+      "y": 3355,
+      "zona": [
+        740,
+        3260,
+        1014,
+        3450
+      ]
+    }
+  },
+  {
+    "id": 22,
+    "nombre": "Palma Fénix",
+    "nombre_en_mapa": "Palma Fenix",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 8 y la Transversal 7",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-22.jpg",
+    "mapa": {
+      "x": 879,
+      "y": 3190,
+      "zona": [
+        675,
+        3090,
+        955,
+        3289
+      ]
+    }
+  },
+  {
+    "id": 23,
+    "nombre": "Jabillo",
+    "nombre_en_mapa": "Jabillo",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 9 y la Transversal 8",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-23.jpg",
+    "mapa": {
+      "x": 900,
+      "y": 2810,
+      "zona": [
+        685,
+        2713,
+        974,
+        2908
+      ]
+    }
+  },
+  {
+    "id": 24,
+    "nombre": "Mango",
+    "nombre_en_mapa": "Mango",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 9 y la Transversal 8",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-24.jpg",
+    "mapa": {
+      "x": 1064,
+      "y": 2753,
+      "zona": [
+        993,
+        2660,
+        1283,
+        2846
+      ]
+    }
+  },
+  {
+    "id": 25,
+    "nombre": "Mango",
+    "nombre_en_mapa": "Mango",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Transversal 10 y la Transversal 9",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-25.jpg",
+    "mapa": {
+      "x": 899,
+      "y": 2050,
+      "zona": [
+        679,
+        1954,
+        972,
+        2145
+      ]
+    }
+  },
+  {
+    "id": 26,
+    "nombre": "Chaguaramo Enano",
+    "nombre_en_mapa": "Chaguaramo Enano",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Av. Los Chorros y la Calle B",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-26.jpg",
+    "mapa": {
+      "x": 1054,
+      "y": 1508,
+      "zona": [
+        983,
+        1416,
+        1280,
+        1600
+      ]
+    }
+  },
+  {
+    "id": 27,
+    "nombre": "Jabillo",
+    "nombre_en_mapa": "Jabillo",
+    "nombre_cientifico": "",
+    "camino": "",
+    "ubicacion": "Av. Sucre, Los Dos Caminos, entre la Av. Los Chorros y la Calle B",
+    "descripcion": "",
+    "foto": "img/arboles/arbol-27.jpg",
+    "mapa": {
+      "x": 1066,
+      "y": 1232,
+      "zona": [
+        994,
+        1139,
+        1278,
+        1325
+      ]
+    }
+  }
+]

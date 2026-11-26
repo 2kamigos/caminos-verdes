@@ -1,0 +1,119 @@
+# Panel de administración de Caminos Verdes (Pages CMS)
+# Entrar en https://app.pagescms.org con la cuenta de GitHub 2kamigos.
+# Cada "Guardar" crea un cambio en GitHub y la web se actualiza sola en 1 o 2 minutos.
+
+media:
+  input: img
+  output: img
+  categories: [image]
+
+content:
+  - name: arboles
+    label: Árboles del mapa
+    type: file
+    path: data/arboles.json
+    format: json
+    list: true
+    fields:
+      - name: id
+        label: Número del árbol
+        type: number
+        readonly: true
+        description: No se cambia. Une el árbol con su lugar en el mapa.
+      - name: nombre
+        label: Nombre común
+        type: string
+        required: true
+      - name: nombre_en_mapa
+        label: Nombre escrito en el mapa original
+        type: string
+        readonly: true
+      - name: nombre_cientifico
+        label: Nombre científico (solo para este árbol)
+        type: string
+        description: Déjalo vacío para usar el de su especie (sección Especies).
+      - name: camino
+        label: Camino o recorrido
+        type: string
+      - name: ubicacion
+        label: Ubicación
+        type: string
+      - name: descripcion
+        label: Descripción (solo para este árbol)
+        type: text
+        description: Déjala vacía para usar la de su especie.
+      - name: nota
+        label: Nota
+        type: string
+        description: Opcional. Por ejemplo, "Hilera de 3 árboles de mango."
+      - name: foto
+        label: Foto
+        type: image
+        options:
+          path: img/arboles
+      - name: mapa
+        label: Posición en el mapa (no modificar)
+        type: object
+        readonly: true
+        fields:
+          - name: x
+            type: number
+          - name: y
+            type: number
+          - name: zona
+            type: number
+            list: true
+
+  - name: especies
+    label: Especies
+    type: file
+    path: data/especies.json
+    format: json
+    list: true
+    fields:
+      - name: nombre
+        label: Nombre común
+        type: string
+        required: true
+        description: Debe coincidir con el nombre del árbol en el mapa (Mango sirve para Mango y Mangos).
+      - name: nombre_cientifico
+        label: Nombre científico
+        type: string
+      - name: descripcion
+        label: Descripción
+        type: text
+      - name: validado
+        label: Información revisada
+        type: boolean
+        default: true
+        description: Si se desmarca, junto al nombre científico aparece "(por validar)".
+
+  - name: calendario
+    label: Calendario 2027
+    type: file
+    path: data/calendario.json
+    format: json
+    list: true
+    fields:
+      - name: mes
+        label: Mes
+        type: string
+        description: Vacío para la portada.
+      - name: especie
+        label: Especie (como aparece en la página)
+        type: string
+      - name: ubicacion
+        label: Ubicación (como aparece en la página)
+        type: string
+      - name: especie_mapa
+        label: Especie en el mapa (para el botón "Ver en el mapa")
+        type: string
+      - name: imagen
+        label: Imagen de la página
+        type: image
+        options:
+          path: img/calendario
+      - name: fondo
+        label: Fondo de pantalla
+        type: string
+        description: Nombre del mes en minúsculas (ej. enero). Vacío = sin botón de fondo.

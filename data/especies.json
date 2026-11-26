@@ -1,0 +1,110 @@
+[
+  {
+    "nombre": "Jabillo",
+    "nombre_cientifico": "Hura crepitans",
+    "descripcion": "Árbol nativo de la América tropical, de gran tamaño, con el tronco cubierto de espinas cónicas. Sus frutos, con forma de pequeña calabaza, estallan al secarse y lanzan las semillas lejos. Su savia es irritante: es mejor no tocarla.",
+    "validado": true
+  },
+  {
+    "nombre": "Samán",
+    "nombre_cientifico": "Samanea saman",
+    "descripcion": "Árbol nativo de la América tropical y uno de los más emblemáticos de Venezuela. Su copa muy amplia, en forma de sombrilla, da sombra abundante. Sus hojas se cierran al atardecer y en los días nublados.",
+    "validado": true
+  },
+  {
+    "nombre": "Mango",
+    "nombre_cientifico": "Mangifera indica",
+    "descripcion": "Originario del sur de Asia y cultivado en todo el trópico. Es un árbol de copa densa y siempre verde que da sombra todo el año. Sus frutos alimentan a personas, aves y otros animales de la ciudad.",
+    "validado": true
+  },
+  {
+    "nombre": "Apamates",
+    "nombre_cientifico": "Tabebuia rosea",
+    "descripcion": "Árbol nativo de la América tropical. En la temporada seca pierde sus hojas y se cubre de flores rosadas o lilas, uno de los espectáculos más bonitos de las calles de Caracas.",
+    "validado": true
+  },
+  {
+    "nombre": "Roble",
+    "nombre_cientifico": "Platymiscium diadelphum",
+    "descripcion": "Árbol nativo de Venezuela, conocido popularmente como roble. Florece con racimos de pequeñas flores amarillas y su madera es muy apreciada por su dureza.",
+    "validado": true
+  },
+  {
+    "nombre": "Almendrón",
+    "nombre_cientifico": "Terminalia catappa",
+    "descripcion": "Originario de Asia tropical y muy usado en las ciudades por su sombra. Sus ramas crecen en pisos horizontales y sus hojas grandes se tornan rojizas antes de caer.",
+    "validado": true
+  },
+  {
+    "nombre": "Urape Blanco",
+    "nombre_cientifico": "Bauhinia sp.",
+    "descripcion": "Árbol pequeño del género Bauhinia, reconocible por sus hojas con dos lóbulos, parecidas a la huella de una pezuña, y por sus flores blancas.",
+    "validado": true
+  },
+  {
+    "nombre": "Pilón",
+    "nombre_cientifico": "Andira inermis",
+    "descripcion": "Árbol nativo de la América tropical, de copa redondeada. Florece con racimos de flores rosadas o moradas que atraen abejas y otros polinizadores.",
+    "validado": true
+  },
+  {
+    "nombre": "Nim",
+    "nombre_cientifico": "Azadirachta indica",
+    "descripcion": "Originario de la India, de crecimiento rápido y resistente a la sequía. Tradicionalmente sus hojas y semillas se usan como repelente natural de insectos.",
+    "validado": true
+  },
+  {
+    "nombre": "Cheflera",
+    "nombre_cientifico": "Schefflera actinophylla",
+    "descripcion": "Originaria de Australia y Nueva Guinea. Tiene hojas compuestas en forma de paraguas y flores rojas en largos racimos que atraen aves e insectos.",
+    "validado": true
+  },
+  {
+    "nombre": "Pittosporum",
+    "nombre_cientifico": "Pittosporum tobira",
+    "descripcion": "Originario de Asia oriental. Es un arbusto o árbol pequeño de hojas brillantes, muy usado en jardinería porque tolera bien la poda; por eso puede verse con forma redondeada.",
+    "validado": true
+  },
+  {
+    "nombre": "Ficus",
+    "nombre_cientifico": "Ficus sp.",
+    "descripcion": "Árbol del género Ficus, de copa densa y raíces muy fuertes. Sus pequeños frutos alimentan a muchas aves de la ciudad.",
+    "validado": true
+  },
+  {
+    "nombre": "Ficus Higuerón",
+    "nombre_cientifico": "Ficus sp.",
+    "descripcion": "Los higuerones son árboles del género Ficus, de gran tamaño y raíces poderosas. Sus pequeños frutos son alimento para aves y murciélagos.",
+    "validado": true
+  },
+  {
+    "nombre": "Palma Fénix",
+    "nombre_cientifico": "Phoenix sp.",
+    "descripcion": "Palmera del género Phoenix, pariente de la palma datilera, con hojas largas y arqueadas. Es muy usada como ornamental en calles y jardines.",
+    "validado": true
+  },
+  {
+    "nombre": "Castaño",
+    "nombre_cientifico": "",
+    "descripcion": "Árbol de sombra conocido popularmente como castaño, apreciado en las calles por la frescura que da su copa.",
+    "validado": true
+  },
+  {
+    "nombre": "Acacias",
+    "nombre_cientifico": "",
+    "descripcion": "Árboles conocidos popularmente como acacias, muy usados en calles por su sombra y su floración.",
+    "validado": true
+  },
+  {
+    "nombre": "Palmas Dulces",
+    "nombre_cientifico": "",
+    "descripcion": "Palmeras conocidas popularmente como palmas dulces, de uso ornamental en calles y jardines.",
+    "validado": true
+  },
+  {
+    "nombre": "Chaguaramo Enano",
+    "nombre_cientifico": "",
+    "descripcion": "Palmera de porte bajo, conocida como chaguaramo enano. El chaguaramo es una de las palmeras más típicas de las calles de Caracas.",
+    "validado": true
+  }
+]

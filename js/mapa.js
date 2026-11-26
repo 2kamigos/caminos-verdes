@@ -6,7 +6,7 @@
       como fondo en Leaflet, en modo "imagen plana" (CRS.Simple): no es un
       mapa geográfico, es el dibujo del diseñador con zoom y desplazamiento.
    2. Sobre cada globo del dibujo se coloca una zona invisible que se puede
-      tocar. Sus coordenadas están en data/arboles.js (campo "mapa").
+      tocar. Sus coordenadas están en data/arboles.json (campo "mapa").
    3. Al tocar una zona se abre la ficha del árbol.
    ========================================================================== */
 (function () {
@@ -17,7 +17,7 @@
   var ALTO = 6774;
   var IMAGEN = "img/mapa/mapa-caminos-verdes.webp";
 
-  var arboles = window.ARBOLES || [];
+  var arboles = [];             // se llena en el arranque con data/arboles.json
   var mapa = null;
   var zonas = {};              // id del árbol -> rectángulo de Leaflet
   var seleccionados = [];      // ids resaltados
@@ -319,7 +319,8 @@
   }
 
   /* ---------- Arranque ---------- */
-  document.addEventListener("DOMContentLoaded", function () {
+  window.alListo(function () {
+    arboles = window.ARBOLES || [];
     iniciarPestanas();
     iniciarMapa();
     iniciarFicha();
